@@ -6,43 +6,35 @@ var _a;
     var valorPeso = peso === null || peso === void 0 ? void 0 : peso.value;
     var valorAltura = altura === null || altura === void 0 ? void 0 : altura.value;
     console.log(valorPeso, valorAltura);
-    // valorPeso >= '700' ? verificaPeso() : peso.value = "";
-    // valorAltura >= '3' ? verificaAltura() : altura.value = "";
     var imc = calculoIMC(Number(valorPeso), Number(valorAltura));
     switch (true) {
         case imc < 18.5:
-            imprime("Abaixo do peso");
+            imprime("Abaixo do peso", "#FFFF00");
             break;
         case imc >= 18.5 && imc <= 24.9:
-            imprime("Peso normal");
+            imprime("Peso normal", "#00FA9A");
             break;
         case imc >= 25 && imc <= 29.9:
-            imprime("Sobrepeso");
+            imprime("Sobrepeso", "#FFFF00");
             break;
         case imc >= 30 && imc <= 34.9:
-            imprime("Obesidade grau 1");
+            imprime("Obesidade grau 1", "#FFA500");
             break;
         case imc >= 35 && imc <= 39.9:
-            imprime("Obesidade grau 2");
+            imprime("Obesidade grau 2", "#FF8C00");
             break;
         case imc > 40:
-            imprime("Obesidade grau 3");
+            imprime("Obesidade grau 3", "#FF4500");
             break;
         default:
-            imprime("Valor inválido");
+            imprime("Valor inválido", "#B22222");
     }
 });
-function verificaAltura() {
-    console.log("altura invalida");
-}
-function verificaPeso() {
-    console.log("Peso invalido");
-}
 function calculoIMC(peso, altura) {
     var imc = peso / (altura * altura);
     return imc;
 }
-function imprime(text) {
+function imprime(text, cor) {
     var element = document.getElementsByTagName("p");
     if (element.length > 0) {
         var indexElement = 0;
@@ -53,7 +45,7 @@ function imprime(text) {
     var elemento_pai = document.querySelector(".backgroundTable");
     // Criar elemento
     var titulo = document.createElement('p');
-    titulo.classList.add("result");
+    titulo.style.backgroundColor = cor;
     // Criar o nó de texto
     var texto = document.createTextNode(text);
     // Anexar o nó de texto ao elemento p
