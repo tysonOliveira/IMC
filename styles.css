@@ -1,0 +1,93 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  background-color: rgb(0, 72, 73);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  background-color: white;
+  width: 35rem;
+  max-height: 50rem;
+  border-radius: 10px;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+h1:nth-of-type(2) {
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+h3 {
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+.backgroundTable {
+  padding: 1rem;
+}
+
+.IMCtable {
+  display: flex;
+  gap: 10rem;
+  font-size: 1.2rem;
+}
+
+.IMC {
+  display: flex;
+  flex-direction: column;
+}
+
+.table1 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.table2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+#input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#peso {
+  height: 2rem;
+  outline-color: rgb(0, 137, 139);
+  font-size: 1.2rem;
+}
+
+#altura {
+  height: 2rem;
+  outline-color: rgb(0, 137, 139);
+  font-size: 1.2rem;
+}
+
+#calcular {
+  background-color: rgb(0, 137, 139);
+  color: white;
+  border: none;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+#calcular:hover {
+  background-color: rgb(0, 107, 109);
+  cursor: pointer;
+}
