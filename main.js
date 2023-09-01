@@ -20,23 +20,23 @@ function calculoIMC(peso, altura) {
 }
 function validaIMC(imc) {
     switch (true) {
-        case imc < 18.5:
-            imprime("Abaixo do peso", "#FFFF00");
-            break;
-        case imc >= 18.5 && imc <= 24.9:
-            imprime("Peso normal", "#00FA9A");
-            break;
-        case imc >= 25 && imc <= 29.9:
-            imprime("Sobrepeso", "#FFFF00");
-            break;
-        case imc >= 30 && imc <= 34.9:
-            imprime("Obesidade grau 1", "#FFA500");
-            break;
-        case imc >= 35 && imc <= 39.9:
-            imprime("Obesidade grau 2", "#FF8C00");
-            break;
         case imc > 40:
             imprime("Obesidade grau 3", "#FF4500");
+            break;
+        case imc >= 35:
+            imprime("Obesidade grau 2", "#FF8C00");
+            break;
+        case imc >= 30:
+            imprime("Obesidade grau 1", "#FFA500");
+            break;
+        case imc >= 25:
+            imprime("Sobrepeso", "#FFFF00");
+            break;
+        case imc >= 18.5:
+            imprime("Peso normal", "#00FA9A");
+            break;
+        case imc < 18.5:
+            imprime("Abaixo do peso", "#FFFF00");
             break;
         default:
             imprime("Valor inválido", "#B22222");
