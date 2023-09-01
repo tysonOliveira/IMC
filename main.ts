@@ -51,8 +51,9 @@ function validaIMC(imc: number) {
 
 function imprime(text: string, cor: string) {
   const element = document.getElementsByTagName("p") as HTMLCollectionOf<HTMLParagraphElement>;
+  var elemento_pai = document.querySelector(".backgroundTable") as HTMLDivElement;
 
-  //exclui elemento se ele existir
+  //Verifica se existe um elemento e o exclui
   if (element.length > 0) {
     const indexElement = 0;
     if (indexElement >= 0 && indexElement < element.length) {
@@ -60,7 +61,6 @@ function imprime(text: string, cor: string) {
     }
   }
 
-  var elemento_pai = document.querySelector(".backgroundTable");
 
   // Criar elemento
   var titulo = document.createElement('p');
