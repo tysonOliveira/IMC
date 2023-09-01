@@ -1,5 +1,3 @@
-
-
 document.getElementById("calcular")?.addEventListener("click", (event) => {
   event.preventDefault();
   const peso = document.getElementById("peso") as HTMLInputElement;
