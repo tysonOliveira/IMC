@@ -3,10 +3,22 @@ var _a;
     event.preventDefault();
     var peso = document.getElementById("peso");
     var altura = document.getElementById("altura");
-    var valorPeso = peso === null || peso === void 0 ? void 0 : peso.value;
-    var valorAltura = altura === null || altura === void 0 ? void 0 : altura.value;
-    console.log(valorPeso, valorAltura);
-    var imc = calculoIMC(Number(valorPeso), Number(valorAltura));
+    var inputPeso = Number(peso === null || peso === void 0 ? void 0 : peso.value);
+    var inputAltura = Number(altura === null || altura === void 0 ? void 0 : altura.value);
+    if (inputPeso < 0 || inputPeso > 700) {
+        throw new Error("O peso deve estar entre 0 e 700.");
+    }
+    if (inputAltura < 0 || inputAltura > 3) {
+        throw new Error("A altura deve estar entre 0 e 3.");
+    }
+    var imc = calculoIMC(inputPeso, inputAltura);
+    validaIMC(imc);
+});
+function calculoIMC(peso, altura) {
+    var imc = peso / (altura * altura);
+    return imc;
+}
+function validaIMC(imc) {
     switch (true) {
         case imc < 18.5:
             imprime("Abaixo do peso", "#FFFF00");
@@ -29,13 +41,10 @@ var _a;
         default:
             imprime("Valor inválido", "#B22222");
     }
-});
-function calculoIMC(peso, altura) {
-    var imc = peso / (altura * altura);
-    return imc;
 }
 function imprime(text, cor) {
     var element = document.getElementsByTagName("p");
+    //exclui elemento se ele existir
     if (element.length > 0) {
         var indexElement = 0;
         if (indexElement >= 0 && indexElement < element.length) {

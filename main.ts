@@ -3,13 +3,28 @@ document.getElementById("calcular")?.addEventListener("click", (event) => {
   const peso = document.getElementById("peso") as HTMLInputElement;
   const altura = document.getElementById("altura") as HTMLInputElement;
 
-  const valorPeso = peso?.value;
-  const valorAltura = altura?.value;
+  const inputPeso = Number(peso?.value);
+  const inputAltura = Number(altura?.value);
 
-  console.log(valorPeso, valorAltura);
+  if (inputPeso < 0 || inputPeso > 700) {
+    throw new Error("O peso deve estar entre 0 e 700.");
+  }
 
-  const imc = calculoIMC(Number(valorPeso), Number(valorAltura));
+  if (inputAltura < 0 || inputAltura > 3) {
+    throw new Error("A altura deve estar entre 0 e 3.");
+  }
 
+  const imc = calculoIMC(inputPeso, inputAltura);
+
+  validaIMC(imc);
+})
+
+function calculoIMC(peso: number, altura: number): number {
+  let imc = peso / (altura * altura);
+  return imc;
+}
+
+function validaIMC(imc: number) {
   switch (true) {
     case imc < 18.5:
       imprime("Abaixo do peso", "#FFFF00");
@@ -32,16 +47,12 @@ document.getElementById("calcular")?.addEventListener("click", (event) => {
     default:
       imprime("Valor inválido", "#B22222");
   }
-})
-
-function calculoIMC(peso: number, altura: number): number {
-  let imc = peso / (altura * altura);
-  return imc;
 }
 
 function imprime(text: string, cor: string) {
   const element = document.getElementsByTagName("p") as HTMLCollectionOf<HTMLParagraphElement>;
 
+  //exclui elemento se ele existir
   if (element.length > 0) {
     const indexElement = 0;
     if (indexElement >= 0 && indexElement < element.length) {
