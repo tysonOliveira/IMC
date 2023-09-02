@@ -44,14 +44,14 @@ function validaIMC(imc) {
 }
 function imprime(text, cor) {
     var element = document.getElementsByTagName("p");
-    //exclui elemento se ele existir
+    var elemento_pai = document.querySelector(".backgroundTable");
+    //Verifica se existe um elemento e o exclui
     if (element.length > 0) {
         var indexElement = 0;
         if (indexElement >= 0 && indexElement < element.length) {
             element[indexElement].remove();
         }
     }
-    var elemento_pai = document.querySelector(".backgroundTable");
     // Criar elemento
     var titulo = document.createElement('p');
     titulo.style.backgroundColor = cor;
